@@ -2,9 +2,10 @@
 
 import {
   createContext,
+  ReactNode,
+  useCallback,
   useEffect,
   useState,
-  ReactNode,
 } from "react";
 
 import {
@@ -13,8 +14,6 @@ import {
   logoutUser,
 } from "../services/auth.service";
 
-
-
 interface IUser {
   _id: string;
   name: string;
@@ -22,28 +21,24 @@ interface IUser {
   role: string;
 }
 
-
-
 interface AuthContextType {
   user: IUser | null;
   loading: boolean;
-  login: (email: string, password: string) => Promise<any>;
+  login: (email: string, password: string) => Promise<unknown>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
 
-
-
 export const AuthContext =
   createContext<AuthContextType | null>(null);
 
-
+interface AuthProviderProps {
+  children: ReactNode;
+}
 
 export const AuthProvider = ({
   children,
-}: {
-  children: ReactNode;
-}) => {
+}: AuthProviderProps) => {
 
   const [user, setUser] =
     useState<IUser | null>(null);
@@ -51,9 +46,7 @@ export const AuthProvider = ({
   const [loading, setLoading] =
     useState(true);
 
-
-
-  const refreshUser = async () => {
+  const refreshUser = useCallback(async () => {
 
     try {
 
@@ -61,7 +54,7 @@ export const AuthProvider = ({
 
       setUser(res.data);
 
-    } catch {
+    } catch (error) {
 
       setUser(null);
 
@@ -71,22 +64,18 @@ export const AuthProvider = ({
 
     }
 
-  };
-
-
+  }, []);
 
   useEffect(() => {
 
     refreshUser();
 
-  }, []);
-
-
+  }, [refreshUser]);
 
   const login = async (
     email: string,
     password: string
-  ) => {
+  ): Promise<unknown> => {
 
     const res = await loginUser({
       email,
@@ -98,9 +87,7 @@ export const AuthProvider = ({
     return res;
   };
 
-
-
-  const logout = async () => {
+  const logout = async (): Promise<void> => {
 
     await logoutUser();
 
@@ -108,10 +95,7 @@ export const AuthProvider = ({
 
   };
 
-
-
   return (
-
     <AuthContext.Provider
       value={{
         user,
@@ -123,7 +107,5 @@ export const AuthProvider = ({
     >
       {children}
     </AuthContext.Provider>
-
   );
-
 };
