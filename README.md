@@ -1,36 +1,188 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CareerPilot AI - Client
 
-## Getting Started
+CareerPilot AI is a production-ready Full Stack Agentic AI web application that helps users analyze resumes using AI, discover suitable career paths, and manage their career journey through an intuitive dashboard.
 
-First, run the development server:
+## 🌐 Live Demo
+
+**Client:** https://your-client-url.vercel.app
+
+**Server API:** https://your-server-url.vercel.app/api/v1
+
+---
+
+# ✨ Features
+
+- AI Resume Analysis
+- AI Career Recommendation Engine
+- Resume Management
+- Career Details Page
+- User Dashboard
+- Admin Dashboard
+- JWT Authentication
+- Google Responsive UI
+- Search, Filter & Sorting
+- Skeleton Loading
+- Toast Notifications
+- Dark Mode
+- About Page
+- Contact Page
+- Blog Page
+- Support Page
+- Mobile Responsive Design
+
+---
+
+# 🤖 AI Features
+
+## AI Resume Analysis
+
+- Resume score generation
+- Strength analysis
+- Weakness detection
+- Personalized suggestions
+
+## AI Career Recommendation
+
+- Career matching
+- Match percentage
+- Required skills
+- Missing skills
+- Personalized recommendations
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- Axios
+- React Hook Form
+- React Hot Toast
+- Lucide React
+
+## Backend
+
+- Express.js
+- Node.js
+- MongoDB
+- JWT Authentication
+- OpenAI API
+
+---
+
+# 📂 Project Structure
+
+```
+app/
+│
+├── about/
+├── blog/
+├── career/
+├── contact/
+├── dashboard/
+├── hooks/
+├── providers/
+├── services/
+├── types/
+├── utils/
+├── components/
+└── assets/
+```
+
+---
+
+# ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build production
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# 🔑 Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_API_URL=https://your-server-url.vercel.app/api/v1
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+# 📱 Pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Public
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Home
+- Career
+- Career Details
+- About
+- Contact
+- Blog
+- Support
+- Login
+- Register
+
+### Protected
+
+- Dashboard
+- Resume Management
+- Resume Details
+- Resume Analysis
+- Career Dashboard
+- Profile
+- Settings
+
+### Admin
+
+- Users
+- Resumes
+- Analyses
+
+---
+
+# 📦 Deployment
+
+Client is deployed on **Vercel**.
+
+Backend is deployed on **Vercel**.
+
+---
+
+# 👨‍💻 Author
+
+**Samia Baly**
+
+GitHub: https://github.com/your-github
+
+LinkedIn: https://linkedin.com/in/your-profile
+
+---
+
+# 📄 License
+
+This project is developed for educational purposes as part of the Programming Hero SCIC-13 Agentic AI Assignment.
