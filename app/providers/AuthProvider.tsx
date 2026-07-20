@@ -68,9 +68,48 @@ export const AuthProvider = ({
 
   useEffect(() => {
 
-    refreshUser();
+    let mounted = true;
 
-  }, [refreshUser]);
+
+    const checkUser = async () => {
+
+      try {
+
+        const res = await getCurrentUser();
+
+
+        if (mounted) {
+          setUser(res.data);
+        }
+
+
+      } catch (error) {
+
+        if (mounted) {
+          setUser(null);
+        }
+
+
+      } finally {
+
+        if (mounted) {
+          setLoading(false);
+        }
+
+      }
+
+    };
+
+
+    checkUser();
+
+
+    return () => {
+      mounted = false;
+    };
+
+
+  }, []);
 
   const login = async (
     email: string,
