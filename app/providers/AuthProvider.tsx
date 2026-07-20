@@ -14,11 +14,12 @@ import {
   logoutUser,
 } from "../services/auth.service";
 
-interface IUser {
+export interface IUser {
   _id: string;
   name: string;
   email: string;
-  role: string;
+  role: "user" | "admin";
+  image?: string;
 }
 
 interface AuthContextType {
@@ -39,7 +40,6 @@ interface AuthProviderProps {
 export const AuthProvider = ({
   children,
 }: AuthProviderProps) => {
-
   const [user, setUser] =
     useState<IUser | null>(null);
 
@@ -47,75 +47,41 @@ export const AuthProvider = ({
     useState(true);
 
   const refreshUser = useCallback(async () => {
-
     try {
+      setLoading(true);
 
       const res = await getCurrentUser();
 
       setUser(res.data);
-
     } catch (error) {
-
       setUser(null);
-
     } finally {
-
       setLoading(false);
-
     }
-
   }, []);
 
   useEffect(() => {
-
-    let mounted = true;
-
-
     const checkUser = async () => {
-
       try {
+        setLoading(true);
 
         const res = await getCurrentUser();
 
-
-        if (mounted) {
-          setUser(res.data);
-        }
-
-
+        setUser(res.data);
       } catch (error) {
-
-        if (mounted) {
-          setUser(null);
-        }
-
-
+        setUser(null);
       } finally {
-
-        if (mounted) {
-          setLoading(false);
-        }
-
+        setLoading(false);
       }
-
     };
-
 
     checkUser();
-
-
-    return () => {
-      mounted = false;
-    };
-
-
   }, []);
 
   const login = async (
     email: string,
     password: string
-  ): Promise<unknown> => {
-
+  ) => {
     const res = await loginUser({
       email,
       password,
@@ -126,12 +92,13 @@ export const AuthProvider = ({
     return res;
   };
 
-  const logout = async (): Promise<void> => {
-
-    await logoutUser();
-
-    setUser(null);
-
+  const logout = async () => {
+    try {
+      await logoutUser();
+    } finally {
+      setUser(null);
+      setLoading(false);
+    }
   };
 
   return (

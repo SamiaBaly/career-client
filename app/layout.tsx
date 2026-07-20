@@ -3,6 +3,8 @@ import "./globals.css";
 
 import QueryProvider from "./providers/QueryProvider";
 import { AuthProvider } from "./providers/AuthProvider";
+import Navbar from "./components/shared/Navbar";
+import Footer from "./components/shared/Footer";
 
 export const metadata: Metadata = {
   title: "CareerPilot AI",
@@ -19,7 +21,13 @@ export default function RootLayout({
       <body>
         <QueryProvider>
           <AuthProvider>
-            {children}
+            <body>
+              <Navbar />
+
+              <main>{children}</main>
+
+              <Footer />
+            </body>
           </AuthProvider>
         </QueryProvider>
       </body>
