@@ -4,10 +4,9 @@ CareerPilot AI is a production-ready Full Stack Agentic AI web application that 
 
 ## 🌐 Live Demo
 
-**Client:** https://your-client-url.vercel.app
+**Client:** https://career-client-seven.vercel.app
 
-**Server API:** https://your-server-url.vercel.app/api/v1
-
+**Server API:** https://career-server-lake.vercel.app/api/v1
 ---
 
 # ✨ Features
@@ -177,9 +176,9 @@ Backend is deployed on **Vercel**.
 
 **Samia Baly**
 
-GitHub: https://github.com/your-github
+GitHub: https://github.com/SamiaBaly
 
-LinkedIn: https://linkedin.com/in/your-profile
+LinkedIn: https://www.linkedin.com/in/samia-baly
 
 ---
 
