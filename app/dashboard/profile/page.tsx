@@ -3,6 +3,7 @@
 import useProfile from "@/app/hooks/useProfile";
 import { updateProfile } from "@/app/services/user.service";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 export default function ProfilePage() {
   const {
@@ -38,13 +39,13 @@ export default function ProfilePage() {
 
       await refetch();
 
-      alert("Profile updated successfully.");
+      toast.success("Profile updated successfully.");
 
     } catch (error) {
 
       console.error(error);
 
-      alert("Failed to update profile.");
+      toast.error("Failed to update profile.");
 
     } finally {
 

@@ -5,6 +5,7 @@ import QueryProvider from "./providers/QueryProvider";
 import { AuthProvider } from "./providers/AuthProvider";
 import Navbar from "./components/shared/Navbar";
 import Footer from "./components/shared/Footer";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "CareerPilot AI",
@@ -25,6 +26,12 @@ export default function RootLayout({
               <Navbar />
 
               <main>{children}</main>
+              <Toaster
+                position="top-right"
+                toastOptions={{
+                  duration: 3000,
+                }}
+              />
 
               <Footer />
             </body>

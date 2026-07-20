@@ -35,8 +35,8 @@ export default function Navbar() {
 
   const dashboardRoute =
     user?.role === "admin"
-      ? "/admin/dashboard"
-      : "/dashboard";
+      ? "/dashboard/admin"
+      : "/dashboard/user";
 
 
   const navLinks = [
@@ -55,7 +55,9 @@ export default function Navbar() {
     {
       name: "Contact",
       href: "/contact",
-    }
+    },
+    { name: "Blog", href: "/blog" },
+    { name: "Support", href: "/support" },
   ];
 
   return (

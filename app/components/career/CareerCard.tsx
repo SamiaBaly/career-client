@@ -153,20 +153,7 @@ export default function CareerCard({
 
 
       {/* View Details */}
-      <button
-        className="
-    mt-8
-    w-full
-    rounded-xl
-    bg-blue-600
-    px-5
-    py-3
-    text-white
-    font-semibold
-  "
-      >
-        View Details
-      </button>
+     
 
 
     </div>

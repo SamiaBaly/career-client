@@ -34,7 +34,7 @@ export default function LoginPage() {
 
       toast.success("Login successful");
 
-      router.push("/dashboard");
+      router.push("/");
     } catch {
       toast.error("Invalid email or password");
     } finally {
