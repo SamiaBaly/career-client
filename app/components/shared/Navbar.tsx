@@ -147,13 +147,44 @@ export default function Navbar() {
                   "
                 >
 
-                  <Image
-                    src={user?.image || "/avatar.png"}
-                    alt={user?.name || "User Profile"}
-                    width={40}
-                    height={40}
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
+                  <div className="flex items-center gap-2">
+                    {user?.photo ? (
+                      <Image
+                        src={user.photo}
+                        alt={user.name}
+                        width={40}
+                        height={40}
+                        className="h-10 w-10 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div
+                        className="
+        flex
+        h-10
+        w-10
+        items-center
+        justify-center
+        rounded-full
+        bg-blue-600
+        text-white
+        font-bold
+        text-lg
+      "
+                      >
+                        {user?.name?.charAt(0).toUpperCase()}
+                      </div>
+                    )}
+
+                    <span
+                      className="
+      font-medium
+      text-gray-800
+      dark:text-gray-200
+    "
+                    >
+                      {user.name}
+                    </span>
+                  </div>
 
 
                   <span
@@ -330,13 +361,31 @@ export default function Navbar() {
                     "
                   >
 
-                    <Image
-                      src={user?.image || "/avatar.png"}
-                      alt={user?.name || "User Profile"}
-                      width={40}
-                      height={40}
-                      className="w-10 h-10 rounded-full object-cover"
-                    />
+                    {user?.photo ? (
+                      <Image
+                        src={user.photo}
+                        alt={user.name}
+                        width={40}
+                        height={40}
+                        className="h-10 w-10 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div
+                        className="
+      flex
+      h-10
+      w-10
+      items-center
+      justify-center
+      rounded-full
+      bg-blue-600
+      text-white
+      font-bold
+    "
+                      >
+                        {user?.name?.charAt(0).toUpperCase()}
+                      </div>
+                    )}
                     <span>
                       {user.name}
                     </span>

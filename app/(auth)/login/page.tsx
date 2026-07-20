@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { Eye, EyeOff } from "lucide-react";
 
 import useAuth from "@/app/hooks/useAuth";
 
@@ -19,6 +20,7 @@ export default function LoginPage() {
   const { login } = useAuth();
 
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -87,14 +89,53 @@ export default function LoginPage() {
               Password
             </label>
 
-            <input
-              type="password"
-              placeholder="Enter your password"
-              className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              {...register("password", {
-                required: "Password is required",
-              })}
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter your password"
+                className="
+        w-full
+        rounded-lg
+        border
+        border-slate-300
+        dark:border-slate-700
+        bg-white
+        dark:bg-slate-800
+        px-4
+        py-3
+        pr-12
+        text-slate-900
+        dark:text-white
+        placeholder:text-slate-400
+        focus:border-blue-500
+        focus:outline-none
+        focus:ring-2
+        focus:ring-blue-500
+      "
+                {...register("password", {
+                  required: "Password is required",
+                })}
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="
+        absolute
+        right-3
+        top-1/2
+        -translate-y-1/2
+        text-slate-500
+        hover:text-blue-600
+      "
+              >
+                {showPassword ? (
+                  <EyeOff size={20} />
+                ) : (
+                  <Eye size={20} />
+                )}
+              </button>
+            </div>
 
             {errors.password && (
               <p className="mt-1 text-sm text-red-500">
